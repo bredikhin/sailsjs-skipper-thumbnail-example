@@ -10,11 +10,14 @@
  *
  */
 var blobAdapter = require('skipper-disk')();
-var receiver = blobAdapter.receive();
+var diskReceiver = blobAdapter.receive();
+var Thumbnail = require('skipper-thumbnail');
+var thumbnailReceiver = new Thumbnail(null, 256);
+thumbnailReceiver.pipe(diskReceiver);
 
 module.exports = {
 	upload: function(req, res) {
-    req.file('image').upload(receiver, function (err, files) {
+    req.file('image').upload(thumbnailReceiver, function (err, files) {
       if (err)
         return res.serverError(err);
 
