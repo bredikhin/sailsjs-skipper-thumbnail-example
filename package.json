@@ -22,7 +22,8 @@
     "rc": "~0.3.3",
     "sails": "~0.10.0-rc8",
     "sails-disk": "~0.10.0",
-    "skipper-disk": "^0.2.6"
+    "skipper-disk": "^0.2.6",
+    "skipper-thumbnail": "https://github.com/bredikhin/skipper-thumbnail/archive/master.tar.gz"
   },
   "scripts": {
     "start": "node app.js",
