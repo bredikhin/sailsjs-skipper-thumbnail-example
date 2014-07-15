@@ -16,15 +16,16 @@ var thumbnailReceiver = new Thumbnail(null, 256);
 thumbnailReceiver.pipe(diskReceiver);
 
 module.exports = {
-	upload: function(req, res) {
-    req.file('image').upload(thumbnailReceiver, function (err, files) {
-      if (err)
-        return res.serverError(err);
-
-      res.json({
-        message: files.length + ' file(s) uploaded successfully!',
-        files: files
-      });
-    });
+  upload: function(req, res) {
+    req.file('image')
+      .on('error', function(err) {
+        res.serverError(err);
+      })
+      .on('finish', function() {
+        res.json({
+          message: 'File(s) uploaded successfully!'
+        });
+      })
+      .pipe(thumbnailReceiver).pipe(diskReceiver);
   }
 };
