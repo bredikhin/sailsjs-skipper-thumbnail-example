@@ -26,6 +26,6 @@ module.exports = {
           message: 'File(s) uploaded successfully!'
         });
       });
-    req.file('image').pipe(thumbnailReceiver).pipe(diskReceiver);
+    req.file('image').pipe(thumbnailReceiver);
   }
 };
