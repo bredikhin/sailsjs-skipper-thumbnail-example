@@ -17,7 +17,7 @@ thumbnailReceiver.pipe(diskReceiver);
 
 module.exports = {
   upload: function(req, res) {
-    req.file('image')
+    diskReceiver
       .on('error', function(err) {
         res.serverError(err);
       })
@@ -25,7 +25,7 @@ module.exports = {
         res.json({
           message: 'File(s) uploaded successfully!'
         });
-      })
-      .pipe(thumbnailReceiver).pipe(diskReceiver);
+      });
+    req.file('image').pipe(thumbnailReceiver).pipe(diskReceiver);
   }
 };
