@@ -1,8 +1,8 @@
 {
   "name": "sailsjs-skipper-thumbnail-example",
   "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
+  "version": "0.0.1",
+  "description": "Sails.js / Skipper Image Uploading and Resizing Example",
   "keywords": [],
   "dependencies": {
     "ejs": "~0.8.4",
@@ -32,8 +32,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/rbr/sailsjs-skipper-thumbnail-example.git"
+    "url": "git://github.com/bredikhin/sailsjs-skipper-thumbnail-example.git"
   },
-  "author": "rbr",
-  "license": ""
+  "author": "Ruslan Bredikhin",
+  "license": "MIT"
 }
